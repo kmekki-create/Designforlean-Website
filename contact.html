@@ -91,7 +91,10 @@
         </div>
 
         <div data-reveal data-reveal-delay="100">
-          <form id="contact-form" action="contact-handler.php" novalidate>
+          <form id="contact-form" action="https://api.web3forms.com/submit" novalidate>
+            <input type="hidden" name="access_key" value="7e2847d1-11a8-4428-8d10-2890efc41125">
+            <input type="hidden" name="subject" value="New inquiry from Design for Lean website">
+            <input type="hidden" name="from_name" value="Design for Lean website">
             <div class="field">
               <label for="name">Full name</label>
               <input type="text" id="name" name="name" placeholder="Jordan Blake" autocomplete="name" required>
@@ -123,7 +126,7 @@
               <textarea id="message" name="message" placeholder="A few sentences about your role, your team, and what you're trying to improve." required></textarea>
               <span class="field-error" role="alert"></span>
             </div>
-            <input type="text" name="website" id="website" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <input type="checkbox" name="botcheck" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
             <button type="submit" class="btn btn-primary btn-lg btn-block">
               <span class="spinner" aria-hidden="true"></span>
               <span class="btn-label">Send message</span>
