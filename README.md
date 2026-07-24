@@ -6,8 +6,8 @@ Static HTML/CSS/JS, no build step or framework dependencies.
 
 ## Structure
 
-- `index.html`, `programs.html`, `consulting.html`, `about.html`, `contact.html`, `resources.html` — main pages
-- `insights/` — article pages
+- `index.html`, `programs.html`, `consulting.html`, `about.html`, `contact.html`, `field-notes.html` — main pages
+- `field-notes/` — article pages
 - `css/styles.css` — design system and all styles
 - `js/main.js` — nav, scroll reveals, FAQ accordion, contact form handling
 - `assets/` — self-hosted fonts and images
