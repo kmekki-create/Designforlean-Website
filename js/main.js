@@ -134,6 +134,16 @@
     });
   });
 
+  /* ---------------- Field Note expand/collapse ---------------- */
+  document.querySelectorAll(".field-note-trigger[aria-controls]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var expanded = btn.getAttribute("aria-expanded") === "true";
+      var full = document.getElementById(btn.getAttribute("aria-controls"));
+      btn.setAttribute("aria-expanded", String(!expanded));
+      if (full) full.setAttribute("data-open", String(!expanded));
+    });
+  });
+
   /* ---------------- Contact form ---------------- */
   var form = document.getElementById("contact-form");
   if (form) {
