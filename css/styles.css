@@ -1439,6 +1439,17 @@ table.compare td.no {
   line-height: 1.7;
   max-width: 65ch;
 }
+.field-note-more ol {
+  padding-left: 1.25em;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.field-note-more li {
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  line-height: 1.7;
+}
 @media (max-width: 620px) {
   .field-note-trigger {
     flex-direction: column;
