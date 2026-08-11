@@ -71,6 +71,33 @@
       <div class="field-note-list" data-reveal>
 
         <div class="field-note-row">
+          <button class="field-note-trigger" aria-expanded="false" aria-controls="fn-dvmatrix">
+            <div class="field-note-meta">
+              <span class="field-note-date">AUG 12, 2026</span>
+              <span class="field-note-tag">VERIFICATION</span>
+            </div>
+            <div class="field-note-body">
+              <h3>Robust design verification Matrix</h3>
+              <p>It is tempting to &ldquo;control&rdquo; a variable in the lab that will actually roam free in the field ambient temperature, operator technique, material lot variation. If you fix it in your DV protocol but the real world won&rsquo;t fix it, you&rsquo;ve verified a design that doesn&rsquo;t exist in production.</p>
+            </div>
+            <svg class="chevron field-note-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="field-note-full" id="fn-dvmatrix" data-open="false">
+            <div class="field-note-full-inner">
+              <div class="field-note-more">
+                <p>P-diagram helps in listing noise and control factors and becomes a bridge to a robust design verification Matrix.</p>
+                <ul>
+                  <li>Control factors &rarr; your DV setup parameters (what you hold constant, what you deliberately vary to find the optimum)</li>
+                  <li>Noise factors &rarr; your DV stress conditions (what you must show robustness against, often via worst-case or combination testing)</li>
+                  <li>Ideal function / response &rarr; your DV pass/fail criteria</li>
+                </ul>
+                <p>If a noise factor has no corresponding verification condition, that&rsquo;s not a gap in your test plan &mdash; it&rsquo;s a gap in your risk coverage. The P-Diagram doesn&rsquo;t just explain how the system behaves; it tells you exactly what you still owe the design before you can trust it.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field-note-row">
           <button class="field-note-trigger" aria-expanded="false" aria-controls="fn-verification">
             <div class="field-note-meta">
               <span class="field-note-date">AUG 10, 2026</span>

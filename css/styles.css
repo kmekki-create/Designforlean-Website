@@ -1439,7 +1439,8 @@ table.compare td.no {
   line-height: 1.7;
   max-width: 65ch;
 }
-.field-note-more ol {
+.field-note-more ol,
+.field-note-more ul {
   padding-left: 1.25em;
   display: flex;
   flex-direction: column;
