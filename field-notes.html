@@ -72,6 +72,33 @@
       <div class="field-note-list" data-reveal>
 
         <div class="field-note-row">
+          <button class="field-note-trigger" aria-expanded="false" aria-controls="fn-doe">
+            <div class="field-note-meta">
+              <span class="field-note-date">AUG 29, 2026</span>
+              <span class="field-note-tag">DOE</span>
+            </div>
+            <div class="field-note-body">
+              <h3>From &ldquo;Watch&rdquo; to robust: closing the loop with DOE</h3>
+              <p>A P-Diagram tells you where the noise is. A DV matrix tells you what&rsquo;s sensitive to it. Neither one fixes anything &mdash; that&rsquo;s the job robust parameter design does next.</p>
+            </div>
+            <svg class="chevron field-note-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="field-note-full" id="fn-doe" data-open="false">
+            <div class="field-note-full-inner">
+              <div class="field-note-more">
+                <p>A &ldquo;Watch&rdquo; status on a DV matrix is a diagnosis, not a fix. A normal DOE asks which control factors move the response. A robust parameter design DOE asks a sharper question: which control-factor setting makes the response stop caring about the noise?</p>
+                <ul>
+                  <li>Put only the noise-sensitive control factors in the inner array &mdash; against an outer array built from the noise levels already defined in the P-Diagram and DV plan</li>
+                  <li>Look for the setting where the response stays flat across noise levels, not just the one that hits target at nominal</li>
+                  <li>Confirm the winning setting at the exact worst-case compound condition, then feed the result back into the DFMEA and verification plan</li>
+                </ul>
+                <p>A &ldquo;Watch&rdquo; status is an instruction to run this experiment, not to retest and hope. Chasing the mean without measuring variance across noise just produces a design that passes today&rsquo;s test and fails next year&rsquo;s field conditions.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field-note-row">
           <button class="field-note-trigger" aria-expanded="false" aria-controls="fn-dvmatrix">
             <div class="field-note-meta">
               <span class="field-note-date">AUG 12, 2026</span>
