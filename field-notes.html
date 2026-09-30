@@ -72,6 +72,32 @@
       <div class="field-note-list" data-reveal>
 
         <div class="field-note-row">
+          <button class="field-note-trigger" aria-expanded="false" aria-controls="fn-dfmfreeze">
+            <div class="field-note-meta">
+              <span class="field-note-date">SEP 30, 2026</span>
+              <span class="field-note-tag">MEDDFSS</span>
+            </div>
+            <div class="field-note-body">
+              <h3>The rule is simple just do not start V&amp;V on a design that only works on the bench.</h3>
+              <p>Landi and Stires nail the expensive pattern: over tolerancing and specialty specs that look &ldquo;safer&rdquo; on the print, then late DFM that forces &ldquo;minor&rdquo; geometry or process tweaks after you have already burned verification. In regulated devices those tweaks are not minor; rather they reopen design outputs, risk, and often another verification cycle.</p>
+            </div>
+            <svg class="chevron field-note-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="field-note-full" id="fn-dfmfreeze" data-open="false">
+            <div class="field-note-full-inner">
+              <div class="field-note-more">
+                <p>The fix is not a colder handoff or a prettier prototype. It is locking a manufacturable design before formal verification: CTQs tied to process capability, tolerances justified against real variation (not tribal preference), and materials/methods that scale not only just print. In DFSS that lock is a freeze: Design is complete enough only when the CTQs, a first pass DFX, and justified tolerances sit with a process concept and a trace that already names verify methods. Only then do you spend Verify. That freeze is not the company design review; those records stay in the QMS. The rule is simple just do not start V&amp;V on a design that only works on the bench.</p>
+                <p>MedDFSS Application makes that visible, currently is a working papers. On one over constrained print you can try TOOL-CTQ; (what must be held), TOOL-DFX; (will it manufacture and assemble), TOOL-TOL; (tighten only what drives a CTQ), and TOOL-TRACE; (need &rarr; CTQ &rarr; output &rarr; verify method). Completeness is the model plus those worksheets, not a prettier CAD file. It is not the DHF and not the QMS of record.</p>
+                <p>James and Don, if a current OEM print has the over tolerance problem you describe, those four worksheets are enough to test whether the freeze would have caught it before design verification testing.</p>
+                <p><a href="https://www.mddionline.com/contract-manufacturing/how-oems-contract-manufacturers-partner-to-eliminate-early-stage-medical-device-design-pitfalls" class="link-arrow" target="_blank" rel="noopener">How OEMs &amp; Contract Manufacturers Partner to Eliminate Early-Stage Medical Device Design Pitfalls (MDDI)
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field-note-row">
           <button class="field-note-trigger" aria-expanded="false" aria-controls="fn-screentorobot">
             <div class="field-note-meta">
               <span class="field-note-date">SEP 29, 2026</span>
