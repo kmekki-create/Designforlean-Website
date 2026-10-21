@@ -72,6 +72,32 @@
       <div class="field-note-list" data-reveal>
 
         <div class="field-note-row">
+          <button class="field-note-trigger" aria-expanded="false" aria-controls="fn-cloud-noise">
+            <div class="field-note-meta">
+              <span class="field-note-date">OCT 21, 2026</span>
+              <span class="field-note-tag">DFSS</span>
+            </div>
+            <div class="field-note-body">
+              <h3>If a noise factor has no test against it, the gap is in your design.</h3>
+              <p>I usually write about medical devices, but the noise factors in transactional DFSS can be exactly the same. A power event in one Google Cloud zone in London took Revolut, Lloyds, HSBC, and parts of the UK courts offline for hours.</p>
+            </div>
+            <svg class="chevron field-note-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="field-note-full" id="fn-cloud-noise" data-open="false">
+            <div class="field-note-full-inner">
+              <div class="field-note-more">
+                <p>That is a system interaction noise factor, the same kind that sinks a well designed device in the field: the product works, but something it depends on fails.</p>
+                <p>Most resilience plans are verified at nominal. The Design For Lean Six Sigma fix is to define the CTQ in the customer&rsquo;s terms (&ldquo;card payment approved in seconds,&rdquo; not &ldquo;99.9% uptime&rdquo;), put single zone loss, a slow third party API, and peak traffic on the P-diagram, and test each one before it shows up as a live incident.</p>
+                <p>If a noise factor has no test against it, the gap isn&rsquo;t in your runbook. It&rsquo;s in your design.</p>
+                <p><a href="https://www.bbc.com/news/articles/cxdd8mm6qy4mo" class="link-arrow" target="_blank" rel="noopener">Google says cloud outage affecting UK banks and websites resolved (BBC News)
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field-note-row">
           <button class="field-note-trigger" aria-expanded="false" aria-controls="fn-rwj">
             <div class="field-note-meta">
               <span class="field-note-date">OCT 20, 2026</span>
