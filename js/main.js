@@ -144,9 +144,10 @@
     });
   });
 
-  /* ---------------- Contact form ---------------- */
-  var form = document.getElementById("contact-form");
-  if (form) {
+  /* ---------------- Contact and course registration forms ---------------- */
+  ["contact-form", "registration-form"].forEach(function (formId) {
+    var form = document.getElementById(formId);
+    if (!form) return;
     var statusEl = document.getElementById("form-status");
     var submitBtn = form.querySelector('button[type="submit"]');
 
@@ -194,11 +195,25 @@
         setFieldError(email, "");
       }
 
-      if (!messageField.value.trim() || messageField.value.trim().length < 10) {
-        setFieldError(messageField, "Tell us a bit more (10+ characters).");
-        valid = false;
-      } else {
-        setFieldError(messageField, "");
+      if (messageField && messageField.required) {
+        if (!messageField.value.trim() || messageField.value.trim().length < 10) {
+          setFieldError(messageField, "Tell us a bit more (10+ characters).");
+          valid = false;
+        } else {
+          setFieldError(messageField, "");
+        }
+      }
+
+      var courseField = form.querySelector("#courses-field");
+      if (courseField) {
+        var courseErr = courseField.querySelector(".field-error");
+        if (!courseField.querySelector('input[type="checkbox"]:checked')) {
+          courseField.classList.add("has-error");
+          if (courseErr) courseErr.textContent = "Pick at least one course.";
+          valid = false;
+        } else {
+          courseField.classList.remove("has-error");
+        }
       }
 
       return valid;
@@ -225,7 +240,8 @@
       var formData = new FormData(form);
       var payload = {};
       formData.forEach(function (value, key) {
-        payload[key] = value;
+        // A checkbox group sends the same key more than once; join the values.
+        payload[key] = Object.prototype.hasOwnProperty.call(payload, key) ? payload[key] + ", " + value : value;
       });
 
       fetch(form.getAttribute("action"), {
@@ -242,7 +258,7 @@
           form.classList.remove("is-loading");
           submitBtn.disabled = false;
           if (result.ok && result.data.success) {
-            showStatus("success", "Thanks — your message is in. A program advisor will reply within two business days.");
+            showStatus("success", form.getAttribute("data-success") || "Thanks — your message is in. A program advisor will reply within two business days.");
             form.reset();
           } else {
             showStatus("error", (result.data && result.data.message) || "Something went wrong. Please try again or email us directly.");
@@ -254,7 +270,35 @@
           showStatus("error", "We couldn't reach the server. Please check your connection or email us directly at info@designforlean.com.");
         });
     });
-  }
+
+    /* Course registration: pre-select a course from a button or ?course= */
+    if (formId === "registration-form") {
+      var syncChips = function () {
+        document.querySelectorAll("[data-pick]").forEach(function (el) {
+          var box = form.querySelector('input[data-course="' + el.getAttribute("data-pick") + '"]');
+          el.classList.toggle("is-picked", Boolean(box && box.checked));
+        });
+      };
+      var pickCourse = function (key) {
+        var box = form.querySelector('input[data-course="' + key + '"]');
+        if (box) {
+          box.checked = true;
+          var group = box.closest(".check-field");
+          if (group) group.classList.remove("has-error");
+        }
+        syncChips();
+      };
+      var wanted = new URLSearchParams(window.location.search).get("course");
+      if (wanted) pickCourse(wanted);
+      document.querySelectorAll("[data-pick]").forEach(function (el) {
+        el.addEventListener("click", function () {
+          pickCourse(el.getAttribute("data-pick"));
+        });
+      });
+      form.addEventListener("change", syncChips);
+      syncChips();
+    }
+  });
 
   /* ---------------- Footer year ---------------- */
   document.querySelectorAll("[data-current-year]").forEach(function (el) {
